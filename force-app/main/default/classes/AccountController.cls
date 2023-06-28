@@ -6,7 +6,7 @@ public with sharing class AccountController {
     @AuraEnabled(cacheable = true)
     public static List<Account> getAccounts(){
 
-        Id userIds  = UserInfo.getUserId();
+        Id userIds  = UserInfo.getUserId(); 
         List<Account> accRecords = [Select Name, Phone, Industry from Account where CreatedById =: userIds];
 System.debug('   accRecords   '+accRecords);
         return accRecords;
